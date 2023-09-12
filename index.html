@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="first">
+            <img class="x" src="./1.jpg" onclick="openImage('1')" >
+            <img class="x" src="./2.jpg" onclick="openImage('2')">
+            <img class="x" src="./3.jpg" onclick="openImage('3')">
+            <img class="x" src="./4.jpg" onclick="openImage('4')">
+        </div>
+        <div class="second">
+            <img class="x" src="./5.jpg" onclick="openImage('5')">
+            <img class="x" src="./6.jpg" onclick="openImage('6')">
+            <img class="x" src="./7.jpg" onclick="openImage('7')">
+            <img class="x" src="./8.jpg" onclick="openImage('8')">
+        </div>
+        <div class="third">
+            <img class="x" src="./9.jpg" onclick="openImage('9')">
+            <img class="x" src="./10.jpg" onclick="openImage('10')">
+            <img class="x" src="./11.jpg" onclick="openImage('11')">
+            <img class="x" src="./12.jpg" onclick="openImage('12')">
+        </div>
+        <div class="fourth">
+            <img class="x" src="./13.jpg" onclick="openImage('13')">
+            <img class="x" src="./14.jpg" onclick="openImage('14')">
+            <img class="x" src="./15.jpg" onclick="openImage('15')">
+            <img class="x" src="./16.jpg" onclick="openImage('16')">
+        </div>
+        <div id="overlay"  onclick="hideImage()"></div>
+        
+          <div id="center" >
+            <img src=""  id="overlayImage">
+             <div class="button">
+                <button id="prev" onclick="previousButton()"> << prev </button>
+                <button id="next" onclick="nextButton()"> next >> </button>
+             </div>
+            </div>
+      
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
