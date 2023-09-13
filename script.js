@@ -18,43 +18,35 @@ var imagePaths = [
 ];
 function addImages() {
   let container = document.querySelector(".container");
-
-  for (let i = 0; i < imagePaths.length; i++) {
+  imagePaths.forEach(function (imagePath, index) {
     let imgElement = document.createElement("img");
     imgElement.classList.add("x");
-    imgElement.src = imagePaths[i];
-    imgElement.onclick = (function (index) {
-      return function () {
-        openImage(index);
-      };
-    })(i + 1);
+    imgElement.src = imagePath;
+    imgElement.onclick = function () {
+        openImage(index + 1);
+    };
     container.appendChild(imgElement);
-  }
+});
 }
-
 addImages();
-
-let x = document.getElementById("overlay");
-let y = document.getElementById("center");
+let overlayContainer = document.getElementById("overlay");
+let centerContainer = document.getElementById("center");
 let currentIndex = 0;
-
 function openImage(imageSrc) {
   currentIndex = imageSrc;
   document.getElementById("overlayImage").src = `${imageSrc}.jpg`;
-  x.style.display = "block";
-  y.style.display = "block";
-  buttonWork();
+  overlayContainer.style.display = "block";
+  centerContainer.style.display = "block";
+  hideButtons()
 }
-
 function previousButton() {
   if (currentIndex > 1) {
     currentIndex--;
     displayImage(currentIndex);
   }
 }
-
 function nextButton() {
-  if (currentIndex < 16) {
+  if (currentIndex < imagePaths.length) {
     currentIndex++;
     displayImage(currentIndex);
   }
@@ -62,26 +54,15 @@ function nextButton() {
 function displayImage(currentIndex) {
   currentIndex;
   document.getElementById("overlayImage").src = `${currentIndex}.jpg`;
-  x.style.display = "block";
-  y.style.display = "block";
-  buttonWork();
+  overlayContainer.style.display = "block";
+  centerContainer.style.display = "block";
+  hideButtons()
 }
 function hideImage() {
-  x.style.display = "none";
-  y.style.display = "none";
+    overlayContainer.style.display = "none";
+    centerContainer.style.display = "none";
 }
-
-function buttonWork() {
-  if (currentIndex == "1") {
-    console.log("hd");
-    document.getElementById("prev").style.visibility = "hidden";
-  } else {
-    console.log("hd");
-    document.getElementById("prev").style.visibility = "visible";
-  }
-  if (currentIndex == "16") {
-    document.getElementById("next").style.visibility = "hidden";
-  } else {
-    document.getElementById("next").style.visibility = "visible";
-  }
+function hideButtons() {
+    document.getElementById("prev").style.visibility = currentIndex === 1 ? "hidden" : "visible";
+    document.getElementById("next").style.visibility = currentIndex === imagePaths.length ? "hidden" : "visible";
 }
